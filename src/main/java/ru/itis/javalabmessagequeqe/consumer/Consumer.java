@@ -10,11 +10,6 @@ public class Consumer {
         JlmqConsumer jlmqConsumer = connector.consumer()
                 .subscribe("documents_for_generate")
                 .onReceive(message -> {
-                    try {
-                        Thread.sleep(2000);
-                    } catch (InterruptedException e) {
-                        throw new IllegalStateException(e);
-                    }
                     System.out.println(message);
                 })
                 .create();
